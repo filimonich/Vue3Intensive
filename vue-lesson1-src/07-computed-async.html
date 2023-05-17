@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="ru">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
 	<link href="css/styles.css" rel="stylesheet">
 	<script src="js/vue.js"></script>
 </head>
+
 <body>
 	<div class="wrapper">
 		<div class="sample">
@@ -17,13 +19,13 @@
 			<div v-if="hasSale">
 				<div class="alert alert-danger">- {{ sale }}%</div>
 				{{ total }}
-			</div>			
-		</di> 
+			</div>
+		</div>
 	</div>
 	<script>
-		
+
 		let app = Vue.createApp({
-			data(){
+			data() {
 				return {
 					promo: '',
 					price: 1000,
@@ -31,21 +33,21 @@
 				}
 			},
 			computed: {
-				hasSale(){
+				hasSale() {
 					return this.sale > 0;
 				},
-				total(){
+				total() {
 					return this.price * (1 - this.sale / 100);
 				}
 			},
 			methods: {
-				checkSale(){
+				checkSale() {
 					this.getSale(this.promo, sale => {
 						this.sale = sale;
 					});
 				},
-				getSale(promo, fn){
-					setTimeout(function(){
+				getSale(promo, fn) {
+					setTimeout(function () {
 						let codes = {
 							some: 10,
 							other: 20
@@ -57,7 +59,7 @@
 				}
 			}
 		});
-		
+
 		let root = app.mount('.sample');
 		console.log(root)
 
@@ -69,17 +71,18 @@
 					some: 10,
 					other: 20
 				};
-
+	
 				let sale = codes.hasOwnProperty(promo) ? codes[promo] : 0;
 				fn(sale);
 			}, 500);
 		}
-
+	
 		getSale('promo', function(sale){
 			console.log(sale);
 		})
-
+	
 		*/
 	</script>
 </body>
+
 </html>

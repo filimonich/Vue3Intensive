@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="ru">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
 	<link href="css/styles.css" rel="stylesheet">
 	<script src="js/vue.js"></script>
 </head>
+
 <body>
 	<div class="wrapper">
 		<div class="sample">
@@ -21,25 +23,26 @@
 		</div>
 	</div>
 	<script>
-		
+
 		let app = Vue.createApp({
-			data(){
+			data() {
 				return {
 					numbers: []
 				}
 			},
 			methods: {
-				add(){
+				add() {
 					this.numbers.push(Math.random());
 				},
-				double(i){
+				double(i) {
 					this.numbers[i] *= 2;
 				}
 			}
 		});
-		
+
 		let root = app.mount('.sample');
 		console.log(root)
 	</script>
 </body>
+
 </html>
