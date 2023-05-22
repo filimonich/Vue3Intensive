@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import App from "./App";
+import store from "./store";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -11,6 +12,6 @@ import {
 library.add(faCheckCircle);
 library.add(faExclamationCircle);
 
-createApp(App).component("fa-icon", FontAwesomeIcon).mount("#app");
+createApp(App).use(store).component("fa-icon", FontAwesomeIcon).mount("#app");
 
 import "bootstrap/dist/css/bootstrap.min.css";

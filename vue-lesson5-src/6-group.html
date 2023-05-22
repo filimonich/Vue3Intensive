@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="ru">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,29 +9,44 @@
 	<link href="css/styles.css" rel="stylesheet">
 	<script src="js/vue.js"></script>
 	<style>
-		.sample{
+		.sample {
 			overflow: hidden;
 		}
-		
-		.fade-enter-active{
+
+		.fade-enter-active {
 			animation: fadeIn 0.5s;
 		}
 
-		.fade-leave-active{
+		.fade-leave-active {
 			animation: fadeOut 0.5s;
 		}
 
 		@keyframes fadeIn {
-			from{ opacity: 0; transform: translateX(-100px); }
-			to{ opacity: 1; transform: translateX(0); }
+			from {
+				opacity: 0;
+				transform: translateX(-100px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateX(0);
+			}
 		}
 
 		@keyframes fadeOut {
-			from{ opacity: 1; transform: translateX(0); }
-			to{ opacity: 0; transform: translateX(100px); }
-	}
+			from {
+				opacity: 1;
+				transform: translateX(0);
+			}
+
+			to {
+				opacity: 0;
+				transform: translateX(100px);
+			}
+		}
 	</style>
 </head>
+
 <body>
 	<div class="wrapper">
 		<div class="sample">
@@ -107,31 +123,32 @@
 				formDone: false
 			}),
 			computed: {
-				fullName(){
+				fullName() {
 					return (this.user.firstName + ' ' + this.user.lastName).trim();
 				},
-				formReady(){
+				formReady() {
 					return Object.values(this.user).every(val => val.length > 0);
 				}
 			},
 			methods: {
-				addGuest(){
+				addGuest() {
 					this.guests.push({ id: ++this.guestsAI, value: '' });
 				},
-				removeGuest(i){
+				removeGuest(i) {
 					this.guests.splice(i, 1);
 				},
-				sendForm(){
-					if(this.formReady){
+				sendForm() {
+					if (this.formReady) {
 						this.formDone = true;
 						this.guests = this.guests.filter(g => g.value.length > 0);
 					}
 				}
 			},
-			mounted(){
+			mounted() {
 				this.$refs.firstInp.focus();
 			}
 		}).mount('.sample');
 	</script>
 </body>
+
 </html>
