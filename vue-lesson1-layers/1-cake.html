@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="ru">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
 	<link href="css/styles.css" rel="stylesheet">
 	<script src="js/vue.js"></script>
 </head>
+
 <body>
 	<div class="container mt-3">
 		<div class="sample">
@@ -18,12 +20,9 @@
 			<div class="row">
 				<div class="col col-sm-6">
 					<div class="cake" v-for="layer,i in layers">
-						<div class="layer"
-							:class="'layer-' + layer.type"
-							:style="{ height: layer.height * 10 + 'px' }"
+						<div class="layer" :class="'layer-' + layer.type" :style="{ height: layer.height * 10 + 'px' }"
 							@click="layer.height++"
-							@contextmenu.prevent="layer.height = layer.height > 1 ? layer.height - 1 : layer.height"
-						></div>
+							@contextmenu.prevent="layer.height = layer.height > 1 ? layer.height - 1 : layer.height"></div>
 					</div>
 				</div>
 				<div class="col col-sm-6">
@@ -59,9 +58,9 @@
 		</div>
 	</div>
 	<script>
-		
+
 		let app = Vue.createApp({
-			data(){
+			data() {
 				return {
 					layers: [],
 					layersTypes: {
@@ -83,16 +82,16 @@
 				}
 			},
 			computed: {
-				hasLayers(){
+				hasLayers() {
 					return this.layers.length > 0;
 				},
-				price(){
+				price() {
 					let sum = 0;
 
-					for(let i = 0; i < this.layers.length; i++){
+					for (let i = 0; i < this.layers.length; i++) {
 						let layer = this.layers[i];
 						let ltype = this.layersTypes[layer.type];
-						
+
 						sum += layer.height * ltype.price1sm;
 					}
 
@@ -100,20 +99,57 @@
 				}
 			},
 			methods: {
-				addLayer(){
-					this.layers.push({ 
-						type: this.defaultLayer, 
-						height: this.defaultHeight 
+				addLayer() {
+					this.layers.push({
+						type: this.defaultLayer,
+						height: this.defaultHeight
 					});
 				},
-				removeLayer(i){
+				removeLayer(i) {
 					this.layers.splice(i, 1);
 				}
 			}
 		});
-		
+
 		let root = app.mount('.sample');
 		console.log(root)
+
+		// _____________________
+
+		// // console.log(foo) // undefined
+		// var foo = 1; // 1
+		// // console.log(foo) // 1
+
+		// function f() {
+		// 	// console.log(foo) // undefined
+		// 	if (foo) { // falls, не сработает 
+		// 		var foo = 2;
+		// 	}
+		// 	console.log(foo)  // undefined
+		// }
+		// f()
+		// // console.log(foo) // 1
+
+		// _____________________
+
+		// console.log(foo)
+		// Uncaught Reference Error: Cannot access 'foo' before initialization
+		// Ошибка неперехваченной ссылки: не удается получить доступ к 'foo' перед инициализацией
+		let foo = 1; // 1
+		console.log(foo) // 1
+
+		function f() {
+			console.log(foo) // 1
+			if (foo) { // falls, не сработает 
+				let foo = 2;
+				console.log(foo)  // 2
+			}
+			console.log(foo)  // 1
+		}
+		f()
+		console.log(foo) // 1
+
 	</script>
 </body>
+
 </html>
