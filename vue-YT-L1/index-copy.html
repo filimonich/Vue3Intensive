@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="app"></div>
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+
+    /*
+      v-model="name"				v-on:click.lazy.number
+        v-bind:value="name"
+        v-on:input="name = $event.target.value"
+        
+      v-bind			:value="some"
+      v-on				v-on:click.prevent.once		@click=""
+      v-if
+      v-else-if
+      v-else
+      v-show
+      v-for
+      e t.c.
+    */
+
+    // Из глобальной переменной Vue возьмём функцию createApp
+    let { createApp, ref, computed } = Vue
+    let rootComponent = {
+      template: `
+        <input type="text" v-model="name">
+        <button v-on:click="cleanName" v-bind:disabled="!nameFilled">x</button>
+        <div v-show="nameFilled">
+          <h2>Hello, {{ name }}</h2>        
+        </div>
+      `,
+      setup() {
+        let name = ref('');
+        let nameFilled = computed(() => name.value.length > 0);
+        let cleanName = () => name.value = '';
+
+        return {
+          name, nameFilled, cleanName
+        }
+      }
+    };
+    let app = createApp(rootComponent)
+    app.mount('.app')
+
+    // data, computed, methods
+
+    // data
+    //  cart: [],
+    //  money: int,
+    //  cupon: null,
+
+    // computed
+    //  total()
+
+    // methods
+    //  add(pr)
+    //  remove(id)
+    //  order()
+  </script>
+</body>
+
+</html>
