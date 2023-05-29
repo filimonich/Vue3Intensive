@@ -1,0 +1,27 @@
+<!DOCTYPE html> <!-- Определение типа документа -->
+<html lang=""> <!-- Корневой элемент HTML-документа -->
+
+<head> <!-- Секция метаданных документа -->
+  <meta charset="utf-8"> <!-- Определение кодировки символов документа -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Инструкция для Internet Explorer использовать последнюю версию движка рендеринга -->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <!-- Определение масштабирования и размеров области просмотра на мобильных устройствах -->
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico"> <!-- Ссылка на значок сайта -->
+  <!-- Заголовок документа -->
+  <!-- Использование значения title из опций htmlWebpackPlugin -->
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+</head>
+
+<body> <!-- Основное содержимое документа -->
+  <noscript> <!-- Сообщение для отображения, если JavaScript отключен в браузере пользователя -->
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+  </noscript>
+  <div id="app"></div> <!-- Контейнер для приложения Vue.js -->
+  <!-- built files will be auto injected --> <!-- Скомпилированные файлы будут автоматически вставлены сюда -->
+</body>
+
+</html>
