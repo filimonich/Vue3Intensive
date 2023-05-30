@@ -1,0 +1,35 @@
+{
+  "name": "vue-ssr-simple",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build:client": "vue-cli-service build",
+    "build:server": "vue-cli-service build --no-clean --server",
+    "build": "npm run build:client && npm run build:server",
+    "devbuild:client": "vue-cli-service build --mode development",
+    "devbuild:server": "vue-cli-service build --no-clean --server --mode development",
+    "devbuild": "npm run devbuild:client && npm run devbuild:server"
+  },
+  "dependencies": {
+    "@vue/server-renderer": "*",
+    "core-js": "*",
+    "express": "*",
+    "vue": "*",
+    "vue-router": "*",
+    "vuex": "*"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "*",
+    "@vue/cli-plugin-router": "*",
+    "@vue/cli-plugin-vuex": "*",
+    "@vue/cli-service": "*",
+    "@vue/compiler-sfc": "*",
+    "webpack-node-externals": "*"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
