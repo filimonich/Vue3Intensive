@@ -1,0 +1,43 @@
+{
+  "name": "vue-ssr-simple",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build:client": "vue-cli-service build",
+    "build:server": "vue-cli-service build --no-clean --server",
+    "build": "npm run build:client && npm run build:server",
+    "devbuild:client": "vue-cli-service build --mode development",
+    "devbuild:server": "vue-cli-service build --no-clean --server --mode development",
+    "devbuild": "npm run devbuild:client && npm run devbuild:server",
+    "watch:client": "vue-cli-service build --no-clean --mode development --watch",
+    "watch:server": "vue-cli-service build --no-clean --server --mode development --watch",
+    "server": "node server.js",
+    "good": "concurrently \"npm run server\" \"npm run watch:client\" \"npm run watch:server\""
+  },
+  "dependencies": {
+    "@vue/server-renderer": "^3.2.9",
+    "axios": "^0.21.4",
+    "bootstrap": "^5.1.1",
+    "core-js": "^3.6.5",
+    "express": "^4.17.1",
+    "lru-cache": "^6.0.0",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "concurrently": "^6.2.1",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
