@@ -16,24 +16,24 @@
     "good": "concurrently \"npm run server\" \"npm run watch:client\" \"npm run watch:server\""
   },
   "dependencies": {
-    "@vue/server-renderer": "^3.2.9",
-    "axios": "^0.21.4",
-    "bootstrap": "^5.1.1",
-    "core-js": "^3.6.5",
-    "express": "^4.17.1",
-    "lru-cache": "^6.0.0",
-    "vue": "^3.0.0",
-    "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "@vue/server-renderer": "*",
+    "axios": "*",
+    "bootstrap": "*",
+    "core-js": "*",
+    "express": "*",
+    "lru-cache": "*",
+    "vue": "*",
+    "vue-router": "*",
+    "vuex": "*"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-router": "~4.5.0",
-    "@vue/cli-plugin-vuex": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
-    "concurrently": "^6.2.1",
-    "webpack-node-externals": "^3.0.0"
+    "@vue/cli-plugin-babel": "*",
+    "@vue/cli-plugin-router": "*",
+    "@vue/cli-plugin-vuex": "*",
+    "@vue/cli-service": "*",
+    "@vue/compiler-sfc": "*",
+    "concurrently": "*",
+    "webpack-node-externals": "*"
   },
   "browserslist": [
     "> 1%",
